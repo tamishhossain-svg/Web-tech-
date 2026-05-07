@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Management System</title>
+</head>
+
+<body>
+
+<h1>Library Management System</h1>
+
+<input type="text" id="title" placeholder="Book Title"><br><br>
+
+<input type="text" id="author" placeholder="Author Name"><br><br>
+
+<input type="text" id="category" placeholder="Category"><br><br>
+
+<select id="status">
+    <option>Available</option>
+    <option>Borrowed</option>
+</select><br><br>
+
+<button onclick="addBook()">Add Book</button>
+
+<br><br>
+
+<table border="1" cellpadding="10" id="bookTable">
+
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Category</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+
+</table>
+
+<script>
+
+function addBook() {
+
+    var title = document.getElementById("title").value;
+    var author = document.getElementById("author").value;
+    var category = document.getElementById("category").value;
+    var status = document.getElementById("status").value;
+
+    var table = document.getElementById("bookTable");
+
+    var row = table.insertRow();
+
+    row.insertCell(0).innerHTML = title;
+    row.insertCell(1).innerHTML = author;
+    row.insertCell(2).innerHTML = category;
+    row.insertCell(3).innerHTML = status;
+
+    row.insertCell(4).innerHTML =
+        "<button onclick='deleteBook(this)'>Delete</button>";
+
+}
+
+function deleteBook(btn) {
+
+    var row = btn.parentNode.parentNode;
+    row.remove();
+
+}
+
+</script>
